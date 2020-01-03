@@ -1,0 +1,176 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.header-btn {
+  position: relative;
+  padding: 13px 5px;
+  width: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color;
+  font-size: 1.8rem;
+  font-family: $alt-font-stack;
+  font-weight: 600;
+  letter-spacing: -0.36px;
+  background: $light-grey;
+  @include transition;
+  cursor: pointer;
+
+  @media (min-width: 375px) {
+    padding: 13px 10px;
+  }
+
+  @include respond-to(small) {
+    padding: 13px 20px;
+    width: 180px;
+  }
+
+  @include respond-to(medium) {
+    padding: 17px 40px;
+    width: 260px;
+    min-height: 60px;
+  }
+
+  &::before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 9px;
+    display: block;
+    content: '';
+    @include transition;
+  }
+
+  &--trends {
+    &::before {
+      background: $trends-color;
+    }
+  }
+
+  &--reports {
+    &::before {
+      background: $reports-color;
+    }
+  }
+
+  &:hover,
+  &.is-active {
+    color: #fff;
+
+    &::before {
+      height: 100%;
+    }
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.btn {
+  width: 130px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $btn-color;
+  font-family: $alt-font-stack;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.4rem;
+  border-radius: 4px;
+  border: 2px solid $btn-color;
+  cursor: pointer;
+  @include transition;
+
+  svg {
+    @include transition;
+    fill: $btn-color;
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background: $btn-color;
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &--arrow {
+    width: 160px;
+
+    &-left {
+      svg {
+        margin-right: 15px;
+        transform: rotate(180deg);
+      }
+    }
+
+    &-right {
+      svg {
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+.scroll-top {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: $dark-grey;
+  border: 2px solid #ffffff;
+  @include transition;
+
+  svg {
+    fill: #fff;
+    transform: rotate(-90deg);
+    @include transition;
+  }
+
+  &:hover,
+  &:focus {
+    background: #fff;
+
+    svg {
+      fill: $dark-grey;
+    }
+  }
+}
+
+body.macro-trends {
+  .header-btn {
+    &--trends {
+      &::before {
+        background: $trends-color;
+        height: 100%;
+      }
+      span {
+        color: #fff;
+      }
+    }
+  }
+}
+
+body.sector-reports {
+  .header-btn {
+    &--reports {
+      &::before {
+        background: $reports-color;
+        height: 100%;
+      }
+      span {
+        color: #fff;
+      }
+    }
+  }
+}

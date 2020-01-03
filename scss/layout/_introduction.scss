@@ -1,0 +1,71 @@
+.introduction {
+  padding: 70px 0;
+  color: #fff;
+  background: $dark-grey;
+
+  @include respond-to(small) {
+    padding: 100px 0;
+  }
+
+  @include respond-to(medium) {
+    padding: 140px 0;
+  }
+
+  .container {
+    max-width: $thin-width;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    @include respond-to(small) {
+      padding: 0 70px;
+    }
+
+    @include respond-to(medium) {
+      padding: 0 100px;
+    }
+
+    @include respond-to(large) {
+      padding: 0 20px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 50px;
+    padding-bottom: 7px;
+    font-size: 3.2rem;
+    font-weight: 400;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      display: block;
+      background: $light-grey;
+      opacity: 0.3;
+      content: '';
+    }
+  }
+
+  &__text {
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    @include respond-to(small) {
+      columns: 360px 2;
+      column-gap: 40px;
+    }
+
+    @include respond-to(large) {
+      columns: 495px 2;
+    }
+  }
+}

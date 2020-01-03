@@ -1,0 +1,196 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.page-footer {
+  position: relative;
+  padding: 60px 0 110px;
+  padding-top: 180px;
+  color: #fff;
+  background: $dark-grey;
+
+  @include respond-to(small) {
+    padding: 90px 0 130px;
+    padding-top: 220px;
+  }
+
+  @include respond-to(medium) {
+    padding: 90px 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    @include respond-to(small) {
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      flex-direction: row;
+      align-self: flex-end;
+      margin-top: 50px;      
+
+      @include respond-to(small) {
+        margin-top: 80px;
+      }
+    }
+
+    .scroll-top {
+      margin-left: 20px;
+    }
+
+    &--text {
+      margin-right: auto;
+      margin-bottom: 50px;
+      width: 100%;
+
+      @include respond-to(small) {
+        margin-bottom: 0;
+        width: auto;
+        max-width: 400px;
+      }
+    }
+
+    &--logo {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+
+      @include respond-to(small) {
+        top: 80px;
+        left: 70px;
+      }
+
+      @include respond-to(medium) {
+        position: static;
+        margin-right: 60px;
+      }
+
+      svg {
+        fill: $light-grey;
+      }
+    }
+
+    p {
+      opacity: 0.8;
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--social {
+
+      align-self: flex-end;
+
+      @include respond-to(small) {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 17px;
+    opacity: 0.8;
+    color: #ffffff;
+    font-family: $alt-font-stack;
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: -0.46px;
+    line-height: 3.1rem;
+  }
+
+  &__link {
+    margin-bottom: 15px;
+    opacity: 0.8;
+    color: #ffffff;
+    font-style: italic;
+    text-decoration: underline;
+    @include transition;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+      text-decoration: none;
+    }
+  }
+
+  &__copyright {
+    max-width: 160px;
+    opacity: 0.8;
+    color: #ffffff;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 400;
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+      font-style: italic;
+      @include transition;
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__wp {
+    position: relative;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(#fff, 0.38);
+
+    &::before {
+      position: absolute;
+      left: 1px;
+      right: 1px;
+      bottom: 0;
+      height: 100%;
+      display: block;
+      background: #fff;
+      content: '';
+      z-index: 1;
+      opacity: 0;
+      @include transition(opacity);
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      fill: $text-color;
+      @include transition;
+      z-index: 5;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .social {
+    margin-bottom: 40px;
+  }
+}

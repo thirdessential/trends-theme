@@ -1,0 +1,30 @@
+.social {
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-right: 10px;
+  }
+
+  a {
+    width: 44px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    border-radius: 50%;
+    background: $dark-grey;
+    border: 1px solid #707070;
+    @include transition;
+
+    svg {
+      fill: $light-grey;
+    }
+
+    &:hover,
+    &:focus {
+      background: #707070;
+    }
+  }
+}

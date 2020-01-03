@@ -1,0 +1,204 @@
+.blog {
+  margin: 50px auto 0;
+
+  @include respond-to(small) {
+    margin: 80px auto;
+  }
+
+  &.container {
+    max-width: $thin-width;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+      .btn {
+        color: #fff !important;
+        background: $btn-color !important;
+      }
+    }
+
+    > a {
+      @media (max-width: 767px) {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+
+    &--report {
+      &:nth-child(even) {
+        justify-content: flex-start !important;
+      }
+
+      &:nth-child(odd) {
+        justify-content: flex-end !important;
+      }
+    }
+
+    @include respond-to(small) {
+      flex-direction: row;
+
+      &:not(:last-child) {
+        margin-bottom: 80px;
+      }
+    }
+
+    a {
+      p {
+        color: $text-color;
+      }
+    }
+
+  }
+
+  &__img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &::before {
+      display: block;
+      padding-bottom: 100%;
+      content: "";
+    }
+
+    @include respond-to(small) {
+      width: 600px;
+      min-height: 530px;
+    }
+  }
+
+  &__text-wrap {
+    position: relative;
+    width: 100%;
+    padding: 20px 30px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    font-family: $alt-font-stack;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    line-height: 1.2;
+    background: $light-grey;
+
+    @include respond-to(small) {
+      position: absolute;
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 40px 50px;
+      padding-top: 100px;
+      width: 520px;
+      height: 90%;
+      font-size: 3rem;
+    }
+  }
+
+  @include respond-to(small) {
+    &__item:nth-child(odd) &__text-wrap {
+      right: 0;
+    }
+
+    &__item:nth-child(even) &__text-wrap {
+      left: 0;
+    }
+
+    &__item--report:nth-child(even) &__text-wrap {
+      right: 0 !important;
+      left: auto !important;
+    }
+
+    &__item--report:nth-child(odd) &__text-wrap {
+      left: 0 !important;
+      right: auto !important;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 10px;
+    display: block;
+    color: #ffffff;
+    font-family: $text-font-stack;
+    font-size: 1.6rem;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.16px;
+  }
+
+  &__item--trend &__badge {
+    background: $trends-color;
+  }
+
+  &__item--report &__badge {
+    background: $reports-color;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    font-family: $alt-font-stack;
+    font-size: 4.5rem;
+    font-weight: 600;
+    letter-spacing: -1.4px;
+    line-height: 1;
+
+    @include respond-to(small) {
+      font-size: 7rem;
+    }
+  }
+
+  &__item--trend &__title {
+    color: $trends-color;
+  }
+
+  &__item--report &__title {
+    color: $reports-color;
+  }
+
+  .btn {
+    margin-top: 30px;
+  }
+
+  &__item--trend {
+    .btn {
+      color: $trends-color;
+      border-color: $trends-color;
+    }
+    &:hover,
+    &:focus {
+      .btn {
+        background: $trends-color !important;
+      }
+    }
+  }
+
+  &__item--report {
+    .btn {
+      color: $reports-color;
+      border-color: $reports-color;
+    }
+    &:hover,
+    &:focus {
+      .btn {
+        background: $reports-color !important;
+      }
+    }
+  }
+}

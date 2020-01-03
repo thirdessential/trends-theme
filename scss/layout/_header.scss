@@ -1,0 +1,391 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 60px;
+  z-index: 21;
+  background: #fff;
+
+  @include respond-to(small) {
+    min-height: 0;
+    height: 51px;
+  }
+
+  @include respond-to(medium) {
+    height: 60px;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+
+    @include respond-to(small) {
+      flex-wrap: nowrap;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  &__btns-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 50;
+
+    .header-btn {
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+    }
+  }
+
+  &.is-hidden {
+    z-index: 20;
+
+    .page-header__btns-wrap {
+      display: none;
+    }
+  }
+
+  &__wrap {
+    padding: 15px 0;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond-to(small) {
+      margin-left: 25px;
+    }
+
+    @media (min-width: 890px) {
+      margin-left: 0;
+    }
+
+    @include respond-to(medium) {
+      margin-left: 25px;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-family: $alt-font-stack;
+    font-size: 1.8rem;
+    font-weight: 300;
+    z-index: 60;
+
+    @include respond-to(small) {
+      margin-left: auto;
+      font-size: 2.2rem;
+    }
+
+    img {
+      width: 217px;
+      height: 21px;
+
+      @include respond-to(small) {
+        width: 277px;
+        height: 28px;
+      }
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__hamburger {
+    margin-left: 25px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 0;
+    cursor: pointer;
+    z-index: 60;
+
+    span {
+      position: relative;
+      width: 30px;
+      height: 3px;
+      display: block;
+      background: $dark-grey;
+      @include transition;
+
+      &::before,
+      &::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 3px;
+        display: block;
+        background: $dark-grey;
+        content: '';
+        @include transition;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      span {
+        background: $btn-color;
+
+        &::before,
+        &::after {
+          background: $btn-color;
+        }
+      }
+    }
+  }
+
+  &__checkbox:checked + &__hamburger {
+    span {
+      background: transparent;
+
+      &::before,
+      &::after {
+        top: 0;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $light-grey;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    @include respond-to(small) {
+      padding: 0;
+    }
+  }
+
+  &__checkbox:checked ~ &__nav-wrap {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__nav-container {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      height: 50px;
+      background-image: linear-gradient(
+        to top,
+        $light-grey,
+        rgba($light-grey, 0)
+      );
+      content: '';
+      z-index: 50;
+    }
+
+    @include respond-to(small) {
+      max-height: none;
+      overflow: visible;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__nav {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    @include respond-to(small) {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      overflow-y: initial;
+    }
+  }
+
+  &__nav-col {
+    position: relative;
+    // padding-left: 15px;
+    width: 100%;
+
+    &:first-child {
+      margin-bottom: 40px;
+    }
+
+    @include respond-to(small) {
+      width: 300px;
+
+      &:not(:last-child) {
+        margin-right: 100px;
+      }
+
+      &:first-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .btn {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      width: 200px;
+
+      @include respond-to(small) {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        margin: 0;
+      }
+
+      svg {
+        margin-left: 5px;
+      }
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+
+      @include respond-to(small) {
+        margin-bottom: 25px;
+      }
+    }
+
+    a:not(.btn) {
+      position: relative;
+      display: block;
+      color: #333333;
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 2.6rem;
+      @include transition;
+
+      &:hover,
+      &:focus {
+        &::before {
+          position: absolute;
+          left: -15px;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          display: block;
+          content: '';
+        }
+      }
+    }
+
+    &--trends a {
+      &:hover,
+      &:focus {
+        &::before {
+          background: $trends-color;
+        }
+      }
+    }
+
+    &--reports a {
+      &:hover,
+      &:focus {
+        &::before {
+          background: $reports-color;
+        }
+      }
+    }
+  }
+
+  &__col-title {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-family: $alt-font-stack;
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: -0.46px;
+    line-height: 3.1rem;
+
+    @include respond-to(small) {
+      margin-bottom: 25px;
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      height: 2px;
+      background: $dark-grey;
+      opacity: 0.2;
+      content: '';
+    }
+  }
+}
+
+.remove-scrolling .page-header {
+  z-index: 25;
+}
+
+body.admin-bar {
+  .page-header {
+    margin-top: 46px;
+
+    @media (min-width: 1024px) {
+      margin-top: 32px;
+    }
+  }
+}

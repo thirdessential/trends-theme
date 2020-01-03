@@ -1,0 +1,140 @@
+.authors {
+  padding: 70px 0 32px;
+  background: rgba($dark-grey, 0.92);
+
+  @include respond-to(large) {
+    padding-bottom: 70px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to(small) {
+      flex-direction: row;
+      justify-content: space-around;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  &__col {
+    padding: 0 30px;
+    color: #fff;
+
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+
+    @include respond-to(small) {
+      width: 400px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include respond-to(large) {
+      width: 60%;
+
+      &:not(:last-child) {
+        width: 35%;
+      }
+    }
+
+    ul {
+      list-style: none;
+
+      @include respond-to(large) {
+        column-count: 2;
+        column-rule-width: 40px;
+      }
+    }
+
+    li {
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      span {
+        margin-left: 10px;
+        font-size: 18px;
+        position: relative;
+      }
+    }
+
+    span {
+      opacity: 0.8;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    color: rgba(#ffffff, 0.8);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      height: 3px;
+      background: $light-grey;
+      opacity: 0.2;
+      content: '';
+    }
+  }
+
+  &__name {
+    font-family: $alt-font-stack;
+    font-weight: 600;
+    opacity: 0.8;
+    font-size: 1em;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include respond-to(small) {
+      flex-direction: row;
+    }
+  }
+
+  &__person {
+    display: flex;
+    flex-direction: column;
+    width: 130px;
+    align-items: center;
+
+    @include respond-to(small) {
+      margin: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    .authors__name {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 10px;
+    width: 130px;
+    min-height: 130px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+}

@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+@font-face {
+  font-family: 'Sabon LT Pro';
+  src: url('../fonts/wf_1.woff2') format('woff2'),
+    url('../fonts/wf_1.woff') format('woff'),
+    url('../fonts/wf_1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// @font-face {
+//   font-family: 'Whitney';
+//   src: url('../fonts/Whitney-Semibold.woff2') format('woff2'),
+//     url('../fonts/Whitney-Semibold.woff') format('woff'),
+//     url('../fonts/Whitney-Semibold.ttf') format('truetype');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Whitney';
+//   src: url('../fonts/Whitney-Book.woff2') format('woff2'),
+//     url('../fonts/Whitney-Book.woff') format('woff'),
+//     url('../fonts/Whitney-Book.ttf') format('truetype');
+//   font-weight: 300;
+//   font-style: normal;
+// }
+
+
+@font-face {
+  font-family: 'Sabon LT Pro';
+  src: url('../fonts/wf.woff2') format('woff2'),
+    url('../fonts/wf.woff') format('woff'),
+    url('../fonts/wf.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
